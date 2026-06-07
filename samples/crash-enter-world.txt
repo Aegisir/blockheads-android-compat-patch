@@ -1,0 +1,16 @@
+ Signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0000000c
+
+ Backtrace summary:
+
+ #00 pc ... libCoreText.so (CTFontCopyPangoDescription+20)
+
+ Observed behavior:
+
+ - First-launch ALLOW path no longer triggers the original crash
+ - User reaches gameplay
+ - App crashes a few seconds after entering a world
+
+ Interpretation:
+
+ - A `CTFont *` or `CTFont->pango_description` pointer was null
+ - The old code dereferenced it without validation

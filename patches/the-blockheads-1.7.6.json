@@ -1,0 +1,49 @@
+ {
+   "project": "blockheads-android-compat-patch",
+   "target": {
+     "name": "The Blockheads",
+     "version": "1.7.6",
+     "platform": "Android"
+   },
+   "input": {
+     "apk_sha256": "29bd526000c04f24ba10b16da9c6c9a57181e40d9bef48c29526aed29c3371eb",
+     "libcoretext_sha256": "7701c409a115886e0fed1cab508995796b144136cfb3d5dafd37ffe002e0e412"
+   },
+   "output": {
+     "patched_apk_sha256": "229e5dec00c64de760546bc734ede7a1fa92ec23d1df5ec3d540f9a94ac06219",
+     "patched_libcoretext_sha256": "892a85c6a4930ad93215017bcf71f3781a7891a56bf320e2000014bd21413d2a"
+   },
+   "patched_entries": [
+     "lib/armeabi-v7a/libCoreText.so"
+   ],
+   "versions": [
+     {
+       "name": "v1",
+       "changes": [
+         {
+           "offset": "0x0000c408",
+           "before": "fcceffff",
+           "after": "bcceffff",
+           "description": "Change fallback font reference from Helvetica to Roboto-Regular"
+         },
+         {
+           "offset": "0x0000c31c",
+           "before": "14001be53bf8ffeb18000be5",
+           "after": "000050e33600000a3af8ffeb18000be5",
+           "description": "Add null guard before CGFontCopyFullName path"
+         }
+       ]
+     },
+     {
+       "name": "v2",
+       "changes": [
+         {
+           "offset": "0x0000cf88",
+           "before": "00482de90db0a0e108d04de204008de504009de50c0090e545f5ffeb0bd0a0e10088bde8",
+           "after": "00482de90db0a0e1000050e30200000a0c0090e5000050e345f5ff1b0bd0a0e10088bde8",
+           "description": "Add null guards in CTFontCopyPangoDescription"
+         }
+       ]
+     }
+   ]
+ }

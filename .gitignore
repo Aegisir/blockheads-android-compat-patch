@@ -1,0 +1,29 @@
+ __pycache__/
+ *.pyc
+ *.pyo
+ *.pyd
+ *.log
+ *.tmp
+ *.bak
+
+ dist/
+ build/
+ out/
+ work/
+
+ *.keystore
+ *.jks
+ *.idb
+ *.i64
+ *.til
+
+ original/
+ extracted/
+ patched-output/
+
+ *.apk
+ *.apks
+ *.aab
+
+ .DS_Store
+ Thumbs.db

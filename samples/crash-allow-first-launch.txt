@@ -1,0 +1,23 @@
+ Signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x00000008
+
+ Backtrace summary:
+
+ #00 pc ... libCoreGraphics.so (CGFontCopyName+44)
+ #01 pc ... libCoreGraphics.so (CGFontCopyFullName+40)
+ #02 pc ... libCoreText.so (CTFontCreateWithGraphicsFont+104)
+ #03 pc ... libCoreText.so (CTFontCreateWithNameAndOptions+64)
+ #04 pc ... libCoreText.so (CTFontCreateWithName+48)
+ #05 pc ... libCoreText.so (CTFramesetterSuggestFrameSizeWithConstraints+232)
+
+ Observed behavior:
+
+ - App launches
+ - Consent dialog is shown
+ - User taps ALLOW
+ - Screen turns black
+ - Native crash occurs
+
+ Interpretation:
+
+ - Legacy fallback font creation failed
+ - A null `CGFont *` reached `CGFontCopyName`
